@@ -131,7 +131,6 @@
         </section>
 
  <!-- Faixa com fundo preto e vídeo de fundo -->
-<!-- Faixa com fundo preto e vídeo de fundo -->
 <div class="faixa-vidro">
 
     <!-- VÍDEO DE FUNDO -->
@@ -160,6 +159,7 @@
   
 
 <!-- Seção Galeria (sem vídeo e sem efeito vidro) -->
+<!-- Seção Galeria (sem vídeo e sem efeito vidro) -->
 <section id="galeria" class="galeria">
     <div class="container">
         <h2 class="section-title">Galeria de Imagens Museu da Língua Portuguesa / Pinacoteca de SP</h2>
@@ -169,35 +169,58 @@
             <div class="galeria-item"><img src="imagens/pina1.png" alt="Estação da Luz"><p>Estação da Luz</p></div>
             <div class="galeria-item"><img src="https://via.placeholder.com/150?text=Auditório" alt="Auditório"><p>Auditório</p></div>
             <div class="galeria-item"><img src="https://via.placeholder.com/150?text=Biblioteca" alt="Biblioteca"><p>Biblioteca</p></div>
-            <div class="galeria-item"><img src="https://via.placeholder.com/150?text=Exposição+Temporária" alt="Exposição Temporária"><p>Exposição Temporária</p></div>
-        </div>
+            <div class="galeria-item logo-zoom" onclick="abrirGaleria()">
+               <img src="imagens/Logo_ifsp.png" alt="Logo do IFSP">
+                <p></p>
+            </div>
+
+        </div> 
     </div>
 </section>
+<!-- Seção de Contato com efeito vidro -->
+<!-- Seção de Contato com efeito vidro -->
+<section id="contato" class="contato">
+  <div class="container vidro">
+    <h2 class="section-title">Informações e Contato</h2>
+
+<div class="contato-imagens">
+  <!-- Museu da Língua Portuguesa -->
+  <div class="imagem-contato img-museu" onclick="abrirInfo('museu')">
+    <img src="imagens/museu_info.png" alt="Museu da Língua Portuguesa" class="img-museu">
+    <p>Museu da Língua Portuguesa</p>
+  </div>
+
+  <!-- Pinacoteca de São Paulo -->
+  <div class="imagem-contato img-pina" onclick="abrirInfo('pina')">
+    <img src="imagens/pina_info.png" alt="Pinacoteca de São Paulo" class="img-pina">
+    <p>Pinacoteca de São Paulo</p>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- Popup de informações -->
+<div id="info-popup" class="popup">
+  <div class="popup-content">
+    <span class="fechar" onclick="fecharInfo()">&times;</span>
+    <div id="info-detalhes"></div>
+  </div>
+</div>
 
 
-      
-        <!-- Seção de Contato com efeito vidro -->
-        <section id="contato" class="contato">
-          <div class="container vidro">
-            <h2 class="section-title">Informações e Contato</h2>
-            <div class="contato-content">
-              <div class="contato-info">
-                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h3>Endereço</h3><p>Praça da Luz, 2 - Bom Retiro<br>São Paulo - SP, 01120-010</p></div></div>
-                <div class="info-item"><i class="fas fa-clock"></i><div><h3>Horário de Funcionamento</h3><p>Terça a domingo: 9h às 16h30<br>Segunda-feira: Fechado</p></div></div>
-                <div class="info-item"><i class="fas fa-phone"></i><div><h3>Telefone</h3><p>(11) 3326-0775</p></div></div>
-                <div class="info-item"><i class="fas fa-envelope"></i><div><h3>E-mail</h3><p>contato@museudalinguaportuguesa.org.br</p></div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-      
+
+
       </div>
+    </div>
+  </div>
+</section>
+
+</div>
       
 </main>
 
-
-
-    <!-- Rodapé (Footer) - Links e informações adicionais -->
+   <!-- Rodapé (Footer) - Links e informações adicionais -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -230,6 +253,62 @@
             </div>
         </div>
     </footer>
+    <div id="galeria-popup" class="popup">
+  <div class="popup-content">
+    <span class="fechar" onclick="fecharGaleria()">&times;</span>
+<h2>Galeria de Professores</h2>
+<div class="grid-professores">
+  <div>
+    <a href="professores/Ivaldo_Informática.html">
+      <img src="professores/Ivaldo_Informática.jpeg" alt="Ivaldo - Informática">
+    </a>
+    <p>Ivaldo - Informática</p>
+  </div>
+  <div>
+    <a href="professores/Rita_Artes.html">
+      <img src="professores/Rita_Artes.png" alt="Rita - Artes">
+    </a>
+    <p>Rita - Artes</p>
+  </div>
+  <div>
+    <a href="professores/Jeanna_Matemática.html">
+      <img src="professores/Jeanna_Matemática.png" alt="Jeanna - Matemática">
+    </a>
+    <p>Jeanna - Matemática</p>
+  </div>
+  <div>
+    <a href="professores/Sérgio_Inglês.html">
+      <img src="professores/Sérgio_Inglês.png" alt="Sérgio - Inglês">
+    </a>
+    <p>Sérgio - Inglês</p>
+  </div>
+  <div>
+    <a href="professores/Giovane_Português.html">
+      <img src="professores/Giovane_Português.png" alt="Giovane - Português">
+    </a>
+    <p>Giovane - Português</p>
+  </div>
+  <div>
+    <a href="professores/Leandro_Geografia.html">
+      <img src="professores/Leandro_Geografia.png" alt="Leandro - Geografia">
+    </a>
+    <p>Leandro - Geografia</p>
+  </div>
+  <div>
+    <a href="professores/prof7.html">
+      <img src="professores/prof7.png" alt="Professor 7">
+    </a>
+    <p>Professor 7</p>
+  </div>
+  <div>
+    <a href="professores/prof8.html">
+      <img src="professores/prof8.png" alt="Professor 8">
+    </a>
+    <p>Professor 8</p>
+  </div>
+</div>
+
+
 
     <!-- Referência ao arquivo de script externo -->
     <script src="script.js"></script>

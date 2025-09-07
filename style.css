@@ -590,6 +590,111 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
+.contato-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.contato-imagens {
+  display: flex;
+  justify-content: flex-start; /* alinha à esquerda */
+  gap: 40px;                   /* espaço entre as imagens */
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+
+.imagem-contato {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.imagem-contato img {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.imagem-contato img[alt*="museu_info"] {
+  width: 160px;
+}
+
+.img-museu {
+  width: 300px !important;
+  height: auto !important;
+  margin-right: auto; /* empurra para a esquerda */
+}
+
+
+.imagem-contato:hover img {
+  transform: scale(1.1);
+}
+.img-pina {
+    width: 160px !important;
+    height: auto !important;
+    margin-left: auto; /* empurra para a direita */
+
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.fechar {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+/* Animação de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  text-align: left;
+  animation: fadeInUp 0.5s ease;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1 1 45%;
+  min-width: 250px;
+}
+
 
 .info-item {
     display: flex;
@@ -907,6 +1012,87 @@ body {
     position: relative;
     z-index: 1;
 }
+.logo-zoom img {
+  max-width: 160px;
+  height: 160px; /* define a altura desejada */
+  margin-top: -20px; 
+  transition: transform 0.3s ease;
+}
+
+.logo-zoom img:hover {
+  transform: scale(1.6); /* efeito de zoom ao passar o mouse */
+}
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.fechar {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.grid-professores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.grid-professores img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+/* Ajuste de posição vertical para Rita e Jeanna */
+.grid-professores img[alt*="Rita"] {
+  
+  margin-top: 15px;
+
+}
+
+.grid-professores img[alt*="Jeanna"] {
+  
+  margin-top: 15px;
+
+}
+.grid-professores img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.grid-professores img:hover {
+  transform: scale(1.9);
+}
+
+
+
+
+
+
 
 
 

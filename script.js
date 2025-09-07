@@ -171,6 +171,54 @@ window.addEventListener('click', function(event) {
         fecharModalEscritores();
     }
 });
+function abrirGaleria() {
+  const popup = document.getElementById("galeria-popup");
+  if (popup) popup.style.display = "flex";
+}
+
+function fecharGaleria() {
+  const popup = document.getElementById("galeria-popup");
+  if (popup) popup.style.display = "none";
+}
+function abrirInfo(local) {
+  let info = "";
+
+  if (local === "museu") {
+    info = `
+      <h1>Museu da Língua Portuguesa</h1>
+      <p><strong>Endereço:</strong> Praça da Luz, s/nº – Centro Histórico de São Paulo, SP, 01120-010</p>
+      <p><strong>Site oficial:</strong> <a href="https://www.museudalinguaportuguesa.org.br/" target="_blank">museudalinguaportuguesa.org.br</a></p>
+      <p><strong>Horário de funcionamento:</strong> Geralmente de terça a domingo, das 9h às 16h30 (entrada até 16h). Recomendo confirmar no site, pois pode variar em feriados ou eventos especiais.</p>
+    `;
+  }
+
+  if (local === "pina") {
+    info = `
+      <h1>Pinacoteca de São Paulo</h1>
+      <p><strong>Endereço:</strong> Praça da Luz, 2 – Luz, São Paulo, SP, 01120-010</p>
+      <p><strong>Site oficial:</strong> <a href="https://www.pinacoteca.org.br/" target="_blank">pinacoteca.org.br</a></p>
+      <p><strong>Horário de funcionamento:</strong> Normalmente de quarta a segunda, das 10h às 18h (fechada às terças)</p>
+    `;
+  }
+  if (local === "pina") {
+  info = `
+    <h1>Pinacoteca de São Paulo</h1>
+    <p><strong>Endereço:</strong> Praça da Luz, 2 – Luz, São Paulo, SP, 01120-010</p>
+    <p><strong>Site oficial:</strong> <a href="https://www.pinacoteca.org.br/" target="_blank">pinacoteca.org.br</a></p>
+    <p><strong>Horário de funcionamento:</strong> Normalmente de quarta a segunda, das 10h às 18h (fechada às terças)</p>
+  `;
+}
+
+
+  document.getElementById("info-detalhes").innerHTML = info;
+  document.getElementById("info-popup").style.display = "flex";
+}
+
+function fecharInfo() {
+  document.getElementById("info-popup").style.display = "none";
+}
+
+
 
 
 
