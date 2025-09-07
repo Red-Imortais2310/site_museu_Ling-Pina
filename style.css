@@ -1,0 +1,915 @@
+/* Importação da fonte para replicar o design */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/*
+ * Reset Básico
+ * Remove as margens e paddings padrão do navegador em todos os elementos.
+ * Isso garante que o layout comece de forma consistente em todos os navegadores.
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+ * Estilos do Corpo da Página (body)
+ * Define a fonte, o gradiente de fundo, a cor do texto e a altura da linha.
+ * 'overflow-x: hidden' previne barras de rolagem horizontais.
+ * 'padding-top' cria um espaço no topo para o header fixo, evitando que o conteúdo fique escondido atrás dele.
+ */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #f9f9a0, #fffacd);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 150px;
+    background-color: transparent; /* ← ESTA LINHA É A CORREÇÃO */
+    padding-right: 20px; /* ou 15px, conforme desejar */
+    }
+      
+
+/*
+ * Estilos do Header (cabeçalho)
+ * Define o header como um elemento fixo no topo da página.
+ * O 'overflow: hidden' impede que o conteúdo do slideshow ultrapasse o limite do header.
+ * A transição 'height' e 'background' cria um efeito suave de recolhimento e mudança de cor.
+ * 'z-index' garante que o header fique na frente de outros elementos da página.
+ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    text-align: center;
+    transition: height 0.3s ease, background 0.3s ease;
+    z-index: 1000;
+}
+
+/*
+ * Estilos do Header quando a página é rolada
+ * Esta classe é adicionada por JavaScript. Ela reduz a altura do header.
+ * 'background: rgba(255, 255, 255, 0.05)' cria um fundo quase transparente.
+ * 'backdrop-filter: blur(15px)' é a propriedade que cria o efeito de "vidro embaçado", desfocando o conteúdo atrás do header.
+ */
+.header.scrolled {
+    height: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/*
+ * Estilos do Título dentro do Header Rolado
+ * Reduz o tamanho da fonte e ajusta o padding do título quando o header está menor.
+ */
+.header.scrolled h1 {
+    font-size: 1.2em;
+    padding-top: 20px;
+}
+
+/*
+ * Estilos da Seção do Slideshow
+ * Posiciona o slideshow de forma absoluta para que ele ocupe todo o espaço do header.
+ */
+.slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+ * Estilos de cada slide (imagem)
+ * Posiciona cada slide de forma absoluta, um em cima do outro.
+ * 'object-fit: cover' garante que a imagem preencha todo o espaço sem distorção.
+ * 'opacity: 0' esconde as imagens por padrão.
+ * A transição de opacidade cria um efeito de fade-in e fade-out suave.
+ */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/*
+ * Classe para o Slide Ativo
+ * Esta classe é adicionada por JavaScript ao slide que deve ser exibido.
+ * Aumenta a opacidade para '1', tornando-o visível.
+ */
+.slide.active {
+    opacity: 1;
+}
+
+/*
+ * Estilos do Título Principal no Header
+ * Posiciona o título acima do slideshow ('z-index: 1').
+ * Define a cor, a sombra do texto e o tamanho da fonte.
+ * A transição suave garante que a mudança de tamanho do texto ao rolar a página seja suave.
+ */
+.header h1 {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 40px;
+    font-size: 2.5em;
+    transition: font-size 0.3s ease, padding-top 0.3s ease;
+}
+
+/*
+ * Estilos das Seções Principais (main)
+ * Define a largura máxima, centraliza a área de conteúdo e adiciona um padding.
+ * 'display: grid' e 'grid-template-columns' criam um layout responsivo, que se ajusta automaticamente para acomodar os blocos em colunas.
+ * 'gap' cria um espaçamento entre os blocos.
+ */
+ main {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+/* Seções */
+.container {
+    width: 100%;
+    margin: 0;
+    max-width: none;
+    padding: 0;
+    padding-right: 20px;
+}
+
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    text-align: center;
+    color: #4a5c41;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #4a5c41;
+    margin: 10px auto 0;
+}
+
+/* Hero Section (layout do museu) */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 0;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-title {
+    font-size: 3em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #eeb58f;
+    color: rgb(255, 255, 255);
+    border: 2px solid #3498db;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #3498db;
+}
+
+.btn-secondary {
+    background-color: #eeb58f;
+    color: rgb(255, 255, 255);
+    border: 2px solid #3498db;
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: #3498db;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 400px;
+    padding-left: 0;
+    margin-left: -40px; /* ← este valor empurra o slideshow para fora da área central */
+}
+
+
+
+/* INÍCIO DAS MODIFICAÇÕES - SLIDESHOW NA SEÇÃO HERO */
+/*
+ * Estilos do Container do Slideshow da seção hero
+ * Define o tamanho do container e a posição relativa para que as imagens
+ * possam ser posicionadas absolutamente dentro dele.
+ */
+ .hero-placeholder.hero-slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%; /* ← altura proporcional ao pai */
+    max-width: 590px;
+    max-height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    margin-left: -60;
+    padding: 0;
+}
+
+        
+    
+
+/*
+ * Estilos para cada slide da seção hero
+ * Posiciona cada slide de forma absoluta, um em cima do outro.
+ * A transição de opacidade cria o efeito de fade-in e fade-out.
+ */
+ .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+
+.hero-slide.hero-active {
+    opacity: 1;
+    z-index: 1;
+}
+
+
+
+/* Exposições */
+.exposicoes-section {
+    background-color: #f0ead6;
+    padding: 80px 0;
+    padding-right: 20px;
+}
+
+.exposicoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.exposicao-card {
+    position: relative;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.exposicao-card:hover {
+    transform: scale(1.03);
+}
+
+.exposicao-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.exposicao-card.lingua-viva {
+    background-image: url('imagens/lingua_viva.jpg');
+
+    background-size: cover;
+    background-position: center;
+}
+
+.exposicao-card.palavras-cruzadas {
+    background-image: url('imagens/influencias.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.exposicao-card.escritores-brasileiros {
+    background-image: url('imagens/literatura.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.exposicao-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: white;
+}
+
+.exposicao-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.exposicao-content p {
+    font-size: 1em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* História */
+.historia {
+    padding: 60px 0;
+    background-color: #fff;
+    padding-right: 20px;
+}
+
+.historia-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.historia-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.historia-text p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.historia-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 2.5em;
+    color: #efa16d;
+}
+
+.stat p {
+    color: #7f8c8d;
+}
+
+.historia-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.historia-figura {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.historia-figura img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.historia-figura figcaption {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #555;
+    font-weight: bold;
+}
+.historia-figura {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.historia-figura img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.historia-figura img:hover {
+    transform: scale(1.03); /* efeito de zoom ao passar o mouse */
+}
+
+.historia-figura figcaption {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+
+
+.historia-placeholder {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #7f8c8d;
+    font-size: 1.5em;
+}
+
+.historia-placeholder i {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* Galeria */
+.galeria {
+    .galeria {
+        padding: 60px 0;
+        background-color: #000;
+        padding-right: 20px;
+    }
+    
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.galeria-item {
+    text-align: center;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.galeria-item p {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Contato */
+.contato {
+    padding: 60px 0;
+    background-color: #000;
+    width: 100vw;
+    margin: 0;
+    padding-right: 20px;
+}
+
+
+.contato-content {
+    display: flex;
+    justify-content: center;
+}
+
+.contato-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-item i {
+    font-size: 2em;
+    color: #3498db;
+}
+
+.info-item h3 {
+    font-size: 1.2em;
+    color: #34495e;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #34495e;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 0.9em;
+    color: #bdc3c7;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #3498db;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #4a647d;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #bdc3c7;
+}
+
+
+
+/* 🔳 FAIXA COM FUNDO PRETO E EFEITO VIDRO */
+.faixa-vidro {
+    position: relative;
+    background-color: transparent; /* ← remove o fundo sólido que encobre o vídeo */
+    overflow: hidden;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  
+  .bg-video {
+    transform: scale(0.9); /* 80% do tamanho original */
+    transform-origin: center;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* ← vídeo acima do fundo, abaixo do conteúdo */
+    opacity: 1; /* ← totalmente visível */
+  }
+  
+  .pinacoteca {
+    position: relative;
+    z-index: 2; /* ← conteúdo acima do vídeo */
+    padding: 60px 0;
+    color: #fff;
+    padding-right: 30px;
+  }
+  
+  
+  .vidro {
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px;
+    color: #fff;
+    width: 100%;
+  }
+  
+  
+  
+
+/* 🔳 CONTEÚDO INTERNO DA PINACOTECA */
+.pinacoteca-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.pinacoteca-text {
+    flex: 1;
+    min-width: 300px;
+    font-size: 1.5em;
+    text-align: left;         /* ← garante alinhamento à esquerda */
+    padding-left: 80px;       /* ← aproxima o texto da margem esquerda */
+    padding-right: 0;         /* ← remove qualquer espaçamento à direita */
+  }
+  
+
+.pinacoteca-text p {
+    margin-bottom: 20px;
+}
+
+/* 🔳 IMAGEM DA PINACOTECA */
+.pinacoteca-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.pinacoteca-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* 🔳 BOTÃO COM EFEITO VIDRO */
+.botao-pinacoteca {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  
+    /* NOVOS AJUSTES ↓ */
+    margin-top: 250px;     /* empurra o botão mais para baixo */
+    margin-left: 20px;    /* aproxima o botão da margem esquerda */
+  }
+  
+
+.botao-pinacoteca:hover {
+    transform: scale(1.10);
+    background: rgba(255, 255, 255, 0.25);
+    color: #000; /* ← esta linha muda a cor da fonte para preto */
+}
+
+/* 🔳 SEÇÃO GALERIA COM EFEITO VIDRO */
+.galeria-vidro {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+/* 🔳 RODAPÉ */
+.footer {
+    background-color: #34495e;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 0.9em;
+    color: #bdc3c7;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #3498db;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #4a647d;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #bdc3c7;
+}
+
+/* 🔳 RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .historia-content {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info-item {
+        justify-content: center;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .exposicao-card {
+        height: 250px;
+    }
+}
+
+/* 🔳 EFEITO VIDRO PARA CONTATO */
+.contato .container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museu da Língua Portuguesa</title>
+    <!-- Referência ao arquivo de estilos externo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Adicionando a biblioteca de ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <!-- Cabeçalho (Header) com Efeito de Rolagem e Slideshow -->
+    <header class="header">
+        <div class="slideshow">
+            <img class="slide active" src="imagens/frentemuseu.png" alt="Museu da Língua Portuguesa">
+            <img class="slide" src="imagens/museu1.png" alt="Museu da Língua Portuguesa">
+            <img class="slide" src="imagens/pina1.png" alt="Pinacoteca">
+            <img class="slide" src="imagens/pina2.png" alt="Pinacoteca">
+            <img class="slide" src="imagens/pina3.png" alt="Pinacoteca">
+        </div>
+        <h1>Museu da Língua Portuguesa</h1>
+    </header>
+
+    <main>
+        <!-- Div para a seção principal do museu -->
+        <div class="museu-section">
+            <!-- Seção Hero - Destaque Principal da Página -->
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Museu da Língua Portuguesa</h1>
+                    <p class="hero-subtitle">Descubra a riqueza e diversidade da língua portuguesa</p>
+                    <p class="hero-description">
+                        Localizado na histórica Estação da Luz, em São Paulo, o Museu da Língua Portuguesa 
+                        celebra a língua como elemento fundamental da cultura brasileira.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#exposicoes" class="btn btn-primary">Conhecer Exposições</a>
+                        <a href="#contato" class="btn btn-secondary">Agendar Visita</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-placeholder hero-slideshow">
+                        <img class="hero-slide hero-active" src="imagens/Museufrente.png" alt="Imagem do Museu">
+                        <img class="hero-slide" src="imagens/museu1.png" alt="Museu Interior">
+                        <img class="hero-slide" src="imagens/museuint.png" alt="Museu Interior 1">
+                        <img class="hero-slide" src="imagens/museuint1.png" alt="Museu Interior 2">
+                        <img class="hero-slide" src="imagens/museuint2.png" alt="Museu Interior 3">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Div para a seção de exposições -->
+        <div class="exposicoes-section">
+            <!-- Seção de Exposições - Apresenta as exposições do museu -->
+            <section id="exposicoes" class="exposicoes">
+                <div class="container">
+                    <h2 class="section-title">Exposições em Destaque</h2>
+                    <div class="exposicoes-grid">
+
+                        <div class="exposicao-card lingua-viva" onclick="abrirModal()">
+                            <div class="exposicao-content">
+                                <h3>Língua Viva</h3>
+                                <p>Uma jornada interativa pela evolução da língua portuguesa, desde suas origens até os dias atuais.</p>
+                            </div>
+                        </div>
+
+                        <div id="modal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="fecharModal()">&times;</span>
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/rmQRAichVWw" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="exposicao-card palavras-cruzadas" onclick="window.open('https://123ecos.com.br/docs/heranca-cultural-brasileira/', '_blank')">
+                            <div class="exposicao-content">
+                                <h3>Palavras Cruzadas</h3>
+                                <p>Explore as influências africanas, indígenas e europeias que moldaram o português brasileiro.</p>
+                            </div>
+                        </div>
+
+                        <div class="exposicao-card escritores-brasileiros" onclick="abrirModalEscritores()">
+                            <div class="exposicao-content">
+                                <h3>Escritores Brasileiros</h3>
+                                <p>Homenagem aos grandes nomes da literatura brasileira e suas contribuições para a língua.</p>
+                            </div>
+                        </div>
+
+                        <div id="modal-escritores" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="fecharModalEscritores()">&times;</span>
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/C91ud0TuAiU" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Seção de História - Traz informações sobre a língua portuguesa -->
+        <section id="historia" class="historia">
+            <div class="container">
+                <div class="historia-content">
+                    <div class="historia-text">
+                      <h4 class="section-title">História da Língua Portuguesa</h4>
+                        <p>O português é uma língua românica que se originou no noroeste da Península Ibérica. Com mais de 260 milhões de falantes nativos, é a língua mais falada no hemisfério sul.</p>
+                         <p>No Brasil, o português chegou com os colonizadores em 1500 e foi se adaptando ao longo dos séculos, incorporando palavras e expressões dos povos indígenas e africanos.</p>
+                          <div class="historia-stats">
+                           
+                            <div class="stat"><h3>260M+</h3><p>Falantes Nativos</p></div>
+                            <div class="stat"><h3>9</h3><p>Países Oficiais</p></div>
+                            <div class="stat"><h3>1500</h3><p>Chegada ao Brasil</p></div>
+                        </div>
+                        <a href="http://cvc.instituto-camoes.pt/hlp/geografia/index.html" class="botao-historia" target="_blank">
+                            Saiba mais sobre a história da língua
+                        </a>
+                    </div>
+                    <div class="historia-image">
+                        <figure class="historia-figura">
+                            <img src="imagens/mapa_expansao.png" alt="Mapa da Expansão">
+                            <figcaption>Mapa da Expansão</figcaption>
+                        </figure>
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+        </section>
+
+ <!-- Faixa com fundo preto e vídeo de fundo -->
+<!-- Faixa com fundo preto e vídeo de fundo -->
+<div class="faixa-vidro">
+
+    <!-- VÍDEO DE FUNDO -->
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="imagens/videoplayback.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo em background.
+    </video>
+  
+    <!-- CONTEÚDO DA PINACOTECA -->
+    <section id="pinacoteca" class="pinacoteca">
+      <div class="container">
+        <div class="pinacoteca-vidro">
+          <h2 class="section-title">Pinacoteca de São Paulo</h2>
+          <div class="pinacoteca-content">
+            <div class="pinacoteca-text">
+              <p>A Pinacoteca de São Paulo é um dos museus de arte mais importantes do Brasil...</p>
+              <p>Fundada em 1905, está localizada no bairro da Luz...</p>
+              <a href="https://pinacoteca.org.br/" class="botao-pinacoteca" target="_blank">Visite o site oficial</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  </div>
+  
+
+<!-- Seção Galeria (sem vídeo e sem efeito vidro) -->
+<section id="galeria" class="galeria">
+    <div class="container">
+        <h2 class="section-title">Galeria de Imagens Museu da Língua Portuguesa / Pinacoteca de SP</h2>
+        <div class="galeria-grid">
+            <div class="galeria-item"><img src="imagens/Museufrente.png" alt="Fachada do Museu"><p>Fachada do Museu</p></div>
+            <div class="galeria-item"><img src="imagens/museu1.png" alt="Exposição Interativa"><p>Exposição Interativa</p></div>
+            <div class="galeria-item"><img src="imagens/pina1.png" alt="Estação da Luz"><p>Estação da Luz</p></div>
+            <div class="galeria-item"><img src="https://via.placeholder.com/150?text=Auditório" alt="Auditório"><p>Auditório</p></div>
+            <div class="galeria-item"><img src="https://via.placeholder.com/150?text=Biblioteca" alt="Biblioteca"><p>Biblioteca</p></div>
+            <div class="galeria-item"><img src="https://via.placeholder.com/150?text=Exposição+Temporária" alt="Exposição Temporária"><p>Exposição Temporária</p></div>
+        </div>
+    </div>
+</section>
+
+
+      
+        <!-- Seção de Contato com efeito vidro -->
+        <section id="contato" class="contato">
+          <div class="container vidro">
+            <h2 class="section-title">Informações e Contato</h2>
+            <div class="contato-content">
+              <div class="contato-info">
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h3>Endereço</h3><p>Praça da Luz, 2 - Bom Retiro<br>São Paulo - SP, 01120-010</p></div></div>
+                <div class="info-item"><i class="fas fa-clock"></i><div><h3>Horário de Funcionamento</h3><p>Terça a domingo: 9h às 16h30<br>Segunda-feira: Fechado</p></div></div>
+                <div class="info-item"><i class="fas fa-phone"></i><div><h3>Telefone</h3><p>(11) 3326-0775</p></div></div>
+                <div class="info-item"><i class="fas fa-envelope"></i><div><h3>E-mail</h3><p>contato@museudalinguaportuguesa.org.br</p></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+      </div>
+      
+</main>
+
+
+
+    <!-- Rodapé (Footer) - Links e informações adicionais -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Museu da Língua Portuguesa</h3>
+                    <p>Celebrando a riqueza e diversidade da língua portuguesa no coração de São Paulo.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#exposicoes">Exposições</a></li>
+                        <li><a href="#historia">História</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Museu da Língua Portuguesa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Referência ao arquivo de script externo -->
+    <script src="script.js"></script>
+</body>
+</html>

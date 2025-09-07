@@ -1,0 +1,177 @@
+// Aguarda o carregamento completo do DOM (Document Object Model) antes de executar o script.
+document.addEventListener('DOMContentLoaded', function() {
+
+    // ----------------------
+    // LÓGICA DO CABEÇALHO
+    // ----------------------
+    const header = document.querySelector('.header');
+
+    // Adiciona um listener para o evento de rolagem da janela.
+    window.addEventListener('scroll', function() {
+        // Verifica se a página foi rolada para baixo (mais de 50 pixels).
+        if (window.scrollY > 50) {
+            // Se sim, adiciona a classe 'scrolled' ao cabeçalho.
+            header.classList.add('scrolled');
+        } else {
+            // Se não, remove a classe 'scrolled'.
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // ----------------------
+    // SLIDESHOW DO CABEÇALHO
+    // ----------------------
+    const slides = document.querySelectorAll('.slideshow .slide');
+    let currentSlide = 0;
+
+    // Função para mostrar o slide atual e esconder os outros.
+    function showSlide() {
+        // Remove a classe 'active' de todos os slides.
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        // Adiciona a classe 'active' ao slide atual, tornando-o visível.
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Função para avançar para o próximo slide.
+    function nextSlide() {
+        // Incrementa o índice do slide.
+        currentSlide = (currentSlide + 1) % slides.length;
+        // Chama a função para mostrar o novo slide.
+        showSlide();
+    }
+
+    // Inicia o slideshow, mudando de slide a cada 5 segundos (5000 milissegundos).
+    setInterval(nextSlide, 5000);
+    // Mostra o primeiro slide ao carregar a página.
+    showSlide();
+
+    // ----------------------------------------------------
+    // INÍCIO DAS MODIFICAÇÕES - SLIDESHOW DA SEÇÃO PRINCIPAL
+    // ----------------------------------------------------
+
+    const heroSlides = document.querySelectorAll('.hero-slideshow .hero-slide');
+    let currentHeroIndex = 0;
+
+    // Se houver slides na seção principal, inicia o slideshow.
+    if (heroSlides.length > 0) {
+        // Função para mostrar o slide ativo e esconder os outros.
+        function showHeroSlide() {
+            heroSlides.forEach(slide => {
+                slide.classList.remove('hero-active');
+            });
+            heroSlides[currentHeroIndex].classList.add('hero-active');
+        }
+
+        // Função para avançar para o próximo slide.
+        function nextHeroSlide() {
+            currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+            showHeroSlide();
+        }
+
+        // Inicia o slideshow da seção principal.
+        setInterval(nextHeroSlide, 4000);
+        showHeroSlide();
+    }
+    // ----------------------------------------------------
+    // FIM DAS MODIFICAÇÕES
+    // ----------------------------------------------------
+
+    // ----------------------
+    // LÓGICA DO MODAL GENÉRICO (exposicao-modal)
+    // ----------------------
+    const modal = document.getElementById("exposicao-modal");
+    const closeBtn = document.querySelector(".close");
+    const exposicaoCards = document.querySelectorAll('.exposicao-card');
+
+    // Adiciona um listener de clique a cada card de exposição.
+    exposicaoCards.forEach(card => {
+        card.addEventListener('click', function() {
+            modal.style.display = "block";
+        });
+    });
+
+    // Adiciona um listener de clique no botão de fechar.
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = "none";
+    });
+
+    // Fecha o modal se o usuário clicar fora dele.
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+
+});
+
+// ----------------------
+// MODAL: Língua Viva
+// ----------------------
+
+// Função para abrir o modal da exposição "Língua Viva"
+function abrirModal() {
+    const modal = document.getElementById("modal");
+    if (modal) {
+        modal.style.display = "block";
+    }
+}
+
+// Função para fechar o modal da exposição "Língua Viva"
+// Reinicia o vídeo ao fechar para interromper o áudio
+function fecharModal() {
+    const modal = document.getElementById("modal");
+    const iframe = modal.querySelector("iframe");
+    if (modal) {
+        modal.style.display = "none";
+    }
+    if (iframe) {
+        iframe.src = iframe.src;
+    }
+}
+
+// ----------------------
+// MODAL: Escritores Brasileiros
+// ----------------------
+
+// Função para abrir o modal da exposição "Escritores Brasileiros"
+function abrirModalEscritores() {
+    const modal = document.getElementById("modal-escritores");
+    if (modal) {
+        modal.style.display = "block";
+    }
+}
+
+// Função para fechar o modal da exposição "Escritores Brasileiros"
+// Reinicia o vídeo ao fechar para interromper o áudio
+function fecharModalEscritores() {
+    const modal = document.getElementById("modal-escritores");
+    const iframe = modal.querySelector("iframe");
+    if (modal) {
+        modal.style.display = "none";
+    }
+    if (iframe) {
+        iframe.src = iframe.src;
+    }
+}
+
+// ----------------------
+// Fecha os modais ao clicar fora da área de conteúdo
+// ----------------------
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById("modal");
+    const modalEscritores = document.getElementById("modal-escritores");
+
+    if (event.target === modal) {
+        fecharModal();
+    }
+
+    if (event.target === modalEscritores) {
+        fecharModalEscritores();
+    }
+});
+
+
+
+
