@@ -217,8 +217,6 @@ h5 {
   margin-bottom: 15px;
 }
 
-
-
 /* Seções */
 .container {
     width: 100%;
@@ -227,13 +225,11 @@ h5 {
     padding: 0;
     padding-right: 20px;
 }
-
-
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
     text-align: center;
-    color: #4a5c41;
+    color: #ffffff;
     position: relative;
     margin-bottom: 50px;
 }
@@ -769,6 +765,27 @@ h5 {
   font-size: 28px;
   cursor: pointer;
 }
+.imagem-contato {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.imagem-contato img {
+  width: 80%;
+  height: auto;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 10px;
+   margin-top: -10px; /* sobe a imagem 10px */
+}
+.img-secult {
+  margin-top: -30px; /* sobe a imagem 30px */
+}
+
+
+
 /* Animação de entrada */
 @keyframes fadeInUp {
   from {
@@ -924,9 +941,6 @@ h5 {
     width: 100%;
   }
   
-  
-  
-
 /* 🔳 CONTEÚDO INTERNO DA PINACOTECA */
 .pinacoteca-content {
     display: flex;
@@ -1002,6 +1016,85 @@ h5 {
     color: #fff;
     position: relative;
     z-index: 1;
+}
+.galeria-slideshow {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.galeria-item {
+  width: 300px;
+  text-align: left;
+  position: relative;
+}
+
+.galeria-item img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.9);
+}
+
+.galeria-item p {
+  margin-top: 6px;
+  font-size: 0.85em;
+  color: #333;
+}
+.galeria-track {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.galeria-item img {
+  width: 100%;
+  height: 180px; /* ou o valor que você quiser */
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+#btn-fechar-galeria {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galeria-item img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.1);
+}
+
+.galeria-item p {
+  margin-top: 6px;
+  font-size: 0.85em;
+  color: #333;
+}
+
+/* Slide automático horizontal */
+@keyframes slideGaleria {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Ajuste conforme número de imagens */
 }
 
 /* 🔳 RODAPÉ */
@@ -1116,13 +1209,15 @@ h5 {
     position: relative;
     z-index: 1;
 }
+
 .logo-zoom img {
-  max-width: 160px;
-  height: 160px; /* define a altura desejada */
-  margin-top: -20px; 
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background-color: white; /* opcional: preenche o fundo se sobrar espaço */
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
-
 .logo-zoom img:hover {
   transform: scale(1.6); /* efeito de zoom ao passar o mouse */
 }

@@ -230,6 +230,119 @@ function abrirInfo(local) {
 function fecharInfo() {
     document.getElementById("info-popup").style.display = "none";
 }
+function abrirInfo(id) {
+  const infoDetalhes = document.getElementById("info-detalhes");
+  let conteudo = "";
+
+  if (id === "museu") {
+conteudo = `
+  <p><strong>Endereço</strong><br>
+  Praça da Luz, s/n – Estação da Luz<br>
+  Centro, São Paulo – SP<br>
+  CEP: 01120-010</p>
+
+  <p><strong>Telefone</strong><br>
+  (11) 4470-1515<br>
+  Você também pode entrar em contato por e-mail: museu@museulp.org.br</p>
+
+  <p><strong>Horário de Funcionamento</strong><br>
+  - Terça a domingo: das 9h às 16h30<br>
+  (permanência permitida até 18h)<br>
+  - Fechado às segundas-feiras<br>
+  - Também não abre nos dias 24/12, 25/12, 31/12 e 1º/1</p>
+`;
+  } else if (id === "pina") {
+    conteudo = `<p>Informações da Pinacoteca...</p>`;
+  } else if (id === "secult") {
+    conteudo = `
+      <h3>SECULT SP – Secretaria da Cultura</h3>
+      <p>📍 <strong>Endereço:</strong><br>
+      Rua Mauá, 51 – 1º andar<br>
+      Bairro Luz – São Paulo, SP<br>
+      CEP: 01028-900</p>
+
+      <p>📞 <strong>Telefones úteis:</strong><br>
+      - Central de atendimento: (11) 2627-8000<br>
+      - Núcleo de protocolo e expedição:<br>
+      - (11) 3339-8280<br>
+      - (11) 3339-8227<br>
+      - (11) 3339-8228<br>
+      (Atendimento de segunda a sexta, das 10h às 12h e das 13h às 17h)</p>
+
+      <p>👩‍💼 <strong>Responsável atual:</strong><br>
+      Marilia Marton – Secretária de Estado da Cultura, Economia e Indústria Criativas<br>
+      Ela assumiu o cargo em janeiro de 2023 e tem liderado iniciativas voltadas à valorização da cultura, economia criativa e inclusão cultural em todo o estado.</p>
+    `;
+  }
+
+  infoDetalhes.innerHTML = conteudo;
+  document.getElementById("info-popup").style.display = "flex";
+}
+function fecharInfo() {
+  document.getElementById("info-popup").style.display = "none";
+}
+
+
+
+// Correção aplicada: garante que o texto usado como chave exista e que o slideshow funcione corretamente
+const slidesPorItem = {
+  "Museufrente": [
+    "img_galeriamuseu/Museufrente.png",
+    "img_galeriamuseu/museu_tarde.jpg",
+    "img_galeriamuseu/museu_cima.jpg"
+  ],
+  "Pinacoteca de SP": [
+    "img_galeriapina/pina_frente.jpeg",
+    "img_galeriapina/pina_cima.jpeg",
+    "img_galeriapina/pina_frente1.jpg"
+  ],
+  "ID Brasil": [
+    "img_idbrasil/idbrasil_img.jpg",
+    "img_idbrasil/idbrasil_img1.jpeg",
+    "img_idbrasil/idbrasil_logo.png"
+  ]
+};
+
+
+let intervalos = new Map();
+
+function iniciarSlide(elemento) {
+  const img = elemento.querySelector("img");
+  const texto = elemento.querySelector("p")?.textContent.trim();
+  const imagens = slidesPorItem[texto];
+  if (!img || !imagens || imagens.length === 0) return;
+
+  let index = 0;
+  const intervalo = setInterval(() => {
+    index = (index + 1) % imagens.length;
+    img.src = imagens[index];
+  }, 1500);
+
+  intervalos.set(elemento, intervalo);
+}
+
+function pararSlide(elemento) {
+  const intervalo = intervalos.get(elemento);
+  if (intervalo) {
+    clearInterval(intervalo);
+    intervalos.delete(elemento);
+    const texto = elemento.querySelector("p")?.textContent.trim();
+    const imagens = slidesPorItem[texto];
+    if (imagens && imagens.length > 0) {
+      elemento.querySelector("img").src = imagens[0];
+    }
+  }
+}
+function abrirPopupSecult() {
+  document.getElementById("popup-secult").style.display = "flex";
+}
+
+function fecharPopupSecult() {
+  document.getElementById("popup-secult").style.display = "none";
+}
+
+
+
 
 
 
