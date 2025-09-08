@@ -1,0 +1,23 @@
+[33mcommit e2aa7a0732aad24511e9f014154ffc2a183a8cdd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Agenor Araújo Filho <agenor.araujof@hotmail.com>
+Date:   Mon Sep 8 03:53:34 2025 -0300
+
+    Atualização do site com popups e slides funcionando
+
+[33mcommit 6e80cfcea41aeb62f205146ca4ec1c360134925b[m
+Author: Agenor Araújo Filho <agenor.araujof@hotmail.com>
+Date:   Sun Sep 7 21:02:23 2025 -0300
+
+    Corrige autoplay dos vídeos nos modais e ajustes visuais
+
+[33mcommit f09bf76e555bbf02a5c75d05c644babdee7c2b01[m
+Author: Agenor Araújo Filho <agenor.araujof@hotmail.com>
+Date:   Sun Sep 7 16:15:40 2025 -0300
+
+    Atualizações no layout e scripts do projeto MUSEU_TESTE2
+
+[33mcommit 34711db2b7356f71a6d487b587919a09e3086b08[m
+Author: Agenor Araújo Filho <agenor.araujof@hotmail.com>
+Date:   Sun Sep 7 00:57:21 2025 -0300
+
+    Primeiro commit do site museu_ling-pina

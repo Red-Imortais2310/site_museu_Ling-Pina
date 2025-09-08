@@ -202,57 +202,48 @@ function fecharGaleria() {
     if (popup) popup.style.display = "none";
 }
 
-function abrirInfo(local) {
-    let info = "";
-
-    if (local === "museu") {
-        info = `
-            <h1>Museu da Língua Portuguesa</h1>
-            <p><strong>Endereço:</strong> Praça da Luz, s/nº – Centro Histórico de São Paulo, SP, 01120-010</p>
-            <p><strong>Site oficial:</strong> <a href="https://www.museudalinguaportuguesa.org.br/" target="_blank">museudalinguaportuguesa.org.br</a></p>
-            <p><strong>Horário de funcionamento:</strong> Geralmente de terça a domingo, das 9h às 16h30 (entrada até 16h). Recomendo confirmar no site, pois pode variar em feriados ou eventos especiais.</p>
-        `;
-    }
-
-    if (local === "pina") {
-        info = `
-            <h1>Pinacoteca de São Paulo</h1>
-            <p><strong>Endereço:</strong> Praça da Luz, 2 – Luz, São Paulo, SP, 01120-010</p>
-            <p><strong>Site oficial:</strong> <a href="https://www.pinacoteca.org.br/" target="_blank">pinacoteca.org.br</a></p>
-            <p><strong>Horário de funcionamento:</strong> Normalmente de quarta a segunda, das 10h às 18h (fechada às terças)</p>
-        `;
-    }
-
-    document.getElementById("info-detalhes").innerHTML = info;
-    document.getElementById("info-popup").style.display = "flex";
-}
-
-function fecharInfo() {
-    document.getElementById("info-popup").style.display = "none";
-}
 function abrirInfo(id) {
   const infoDetalhes = document.getElementById("info-detalhes");
   let conteudo = "";
 
   if (id === "museu") {
-conteudo = `
-  <p><strong>Endereço</strong><br>
-  Praça da Luz, s/n – Estação da Luz<br>
-  Centro, São Paulo – SP<br>
-  CEP: 01120-010</p>
+    conteudo = `
+      <p><strong>Endereço</strong><br>
+      Praça da Luz, s/n – Estação da Luz<br>
+      Centro, São Paulo – SP<br>
+      CEP: 01120-010</p>
 
-  <p><strong>Telefone</strong><br>
-  (11) 4470-1515<br>
-  Você também pode entrar em contato por e-mail: museu@museulp.org.br</p>
+      <p><strong>Telefone</strong><br>
+      (11) 4470-1515<br>
+      Você também pode entrar em contato por e-mail: museu@museulp.org.br</p>
 
-  <p><strong>Horário de Funcionamento</strong><br>
-  - Terça a domingo: das 9h às 16h30<br>
-  (permanência permitida até 18h)<br>
-  - Fechado às segundas-feiras<br>
-  - Também não abre nos dias 24/12, 25/12, 31/12 e 1º/1</p>
-`;
+      <p><strong>Horário de Funcionamento</strong><br>
+      - Terça a domingo: das 9h às 16h30<br>
+      (permanência permitida até 18h)<br>
+      - Fechado às segundas-feiras<br>
+      - Também não abre nos dias 24/12, 25/12, 31/12 e 1º/1</p>
+    `;
   } else if (id === "pina") {
-    conteudo = `<p>Informações da Pinacoteca...</p>`;
+    conteudo = `
+      <h3>Pinacoteca de São Paulo</h3>
+      <p>📍 <strong>Endereço:</strong><br>
+      Praça da Luz, nº 2 – Bom Retiro<br>
+      São Paulo – SP<br>
+      CEP: 01120-010<br>
+      <em>(Próxima à Estação da Luz do Metrô e CPTM)</em></p>
+
+      <p>📞 <strong>Telefone:</strong><br>
+      (11) 3324-1000<br>
+      <em>Esse número atende principalmente à unidade Pina Luz, que é o prédio histórico principal.</em></p>
+
+      <p>🕒 <strong>Horário de Funcionamento:</strong><br>
+      - Quarta a segunda-feira: das 10h às 18h<br>
+      - Quintas-feiras (Pina Luz): horário estendido até 20h<br>
+      - Fechado às terças-feiras</p>
+
+      <p>A Pinacoteca possui três unidades: Pina Luz, Pina Estação e Pina Contemporânea, todas próximas entre si e com acesso incluído no mesmo ingresso.<br>
+      Se quiser saber sobre exposições em cartaz ou como agendar visitas em grupo, posso te ajudar com isso também.</p>
+    `;
   } else if (id === "secult") {
     conteudo = `
       <h3>SECULT SP – Secretaria da Cultura</h3>
@@ -278,9 +269,11 @@ conteudo = `
   infoDetalhes.innerHTML = conteudo;
   document.getElementById("info-popup").style.display = "flex";
 }
+
 function fecharInfo() {
   document.getElementById("info-popup").style.display = "none";
 }
+
 
 
 
