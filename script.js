@@ -113,21 +113,31 @@ document.addEventListener('DOMContentLoaded', function() {
 // Função para abrir o modal da exposição "Língua Viva"
 function abrirModal() {
     const modal = document.getElementById("modal");
-    if (modal) {
+    const iframeContainer = modal.querySelector(".modal-content");
+    if (modal && iframeContainer) {
         modal.style.display = "block";
+        // Insere o iframe com autoplay ativado
+        iframeContainer.innerHTML = `
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <iframe width="100%" height="315"
+                src="https://www.youtube.com/embed/rmQRAichVWw?autoplay=1&mute=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        `;
     }
 }
 
 // Função para fechar o modal da exposição "Língua Viva"
-// Reinicia o vídeo ao fechar para interromper o áudio
 function fecharModal() {
     const modal = document.getElementById("modal");
-    const iframe = modal.querySelector("iframe");
-    if (modal) {
+    const iframeContainer = modal.querySelector(".modal-content");
+    if (modal && iframeContainer) {
         modal.style.display = "none";
-    }
-    if (iframe) {
-        iframe.src = iframe.src;
+        iframeContainer.innerHTML = `
+            <span class="close" onclick="fecharModal()">&times;</span>
+        `;
     }
 }
 
@@ -138,21 +148,31 @@ function fecharModal() {
 // Função para abrir o modal da exposição "Escritores Brasileiros"
 function abrirModalEscritores() {
     const modal = document.getElementById("modal-escritores");
-    if (modal) {
+    const iframeContainer = modal.querySelector(".modal-content");
+    if (modal && iframeContainer) {
         modal.style.display = "block";
+        // Insere o iframe com autoplay ativado
+        iframeContainer.innerHTML = `
+            <span class="close" onclick="fecharModalEscritores()">&times;</span>
+            <iframe width="100%" height="315"
+                src="https://www.youtube.com/embed/C91ud0TuAiU?autoplay=1&mute=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        `;
     }
 }
 
 // Função para fechar o modal da exposição "Escritores Brasileiros"
-// Reinicia o vídeo ao fechar para interromper o áudio
 function fecharModalEscritores() {
     const modal = document.getElementById("modal-escritores");
-    const iframe = modal.querySelector("iframe");
-    if (modal) {
+    const iframeContainer = modal.querySelector(".modal-content");
+    if (modal && iframeContainer) {
         modal.style.display = "none";
-    }
-    if (iframe) {
-        iframe.src = iframe.src;
+        iframeContainer.innerHTML = `
+            <span class="close" onclick="fecharModalEscritores()">&times;</span>
+        `;
     }
 }
 
@@ -171,51 +191,44 @@ window.addEventListener('click', function(event) {
         fecharModalEscritores();
     }
 });
+
 function abrirGaleria() {
-  const popup = document.getElementById("galeria-popup");
-  if (popup) popup.style.display = "flex";
+    const popup = document.getElementById("galeria-popup");
+    if (popup) popup.style.display = "flex";
 }
 
 function fecharGaleria() {
-  const popup = document.getElementById("galeria-popup");
-  if (popup) popup.style.display = "none";
+    const popup = document.getElementById("galeria-popup");
+    if (popup) popup.style.display = "none";
 }
+
 function abrirInfo(local) {
-  let info = "";
+    let info = "";
 
-  if (local === "museu") {
-    info = `
-      <h1>Museu da Língua Portuguesa</h1>
-      <p><strong>Endereço:</strong> Praça da Luz, s/nº – Centro Histórico de São Paulo, SP, 01120-010</p>
-      <p><strong>Site oficial:</strong> <a href="https://www.museudalinguaportuguesa.org.br/" target="_blank">museudalinguaportuguesa.org.br</a></p>
-      <p><strong>Horário de funcionamento:</strong> Geralmente de terça a domingo, das 9h às 16h30 (entrada até 16h). Recomendo confirmar no site, pois pode variar em feriados ou eventos especiais.</p>
-    `;
-  }
+    if (local === "museu") {
+        info = `
+            <h1>Museu da Língua Portuguesa</h1>
+            <p><strong>Endereço:</strong> Praça da Luz, s/nº – Centro Histórico de São Paulo, SP, 01120-010</p>
+            <p><strong>Site oficial:</strong> <a href="https://www.museudalinguaportuguesa.org.br/" target="_blank">museudalinguaportuguesa.org.br</a></p>
+            <p><strong>Horário de funcionamento:</strong> Geralmente de terça a domingo, das 9h às 16h30 (entrada até 16h). Recomendo confirmar no site, pois pode variar em feriados ou eventos especiais.</p>
+        `;
+    }
 
-  if (local === "pina") {
-    info = `
-      <h1>Pinacoteca de São Paulo</h1>
-      <p><strong>Endereço:</strong> Praça da Luz, 2 – Luz, São Paulo, SP, 01120-010</p>
-      <p><strong>Site oficial:</strong> <a href="https://www.pinacoteca.org.br/" target="_blank">pinacoteca.org.br</a></p>
-      <p><strong>Horário de funcionamento:</strong> Normalmente de quarta a segunda, das 10h às 18h (fechada às terças)</p>
-    `;
-  }
-  if (local === "pina") {
-  info = `
-    <h1>Pinacoteca de São Paulo</h1>
-    <p><strong>Endereço:</strong> Praça da Luz, 2 – Luz, São Paulo, SP, 01120-010</p>
-    <p><strong>Site oficial:</strong> <a href="https://www.pinacoteca.org.br/" target="_blank">pinacoteca.org.br</a></p>
-    <p><strong>Horário de funcionamento:</strong> Normalmente de quarta a segunda, das 10h às 18h (fechada às terças)</p>
-  `;
-}
+    if (local === "pina") {
+        info = `
+            <h1>Pinacoteca de São Paulo</h1>
+            <p><strong>Endereço:</strong> Praça da Luz, 2 – Luz, São Paulo, SP, 01120-010</p>
+            <p><strong>Site oficial:</strong> <a href="https://www.pinacoteca.org.br/" target="_blank">pinacoteca.org.br</a></p>
+            <p><strong>Horário de funcionamento:</strong> Normalmente de quarta a segunda, das 10h às 18h (fechada às terças)</p>
+        `;
+    }
 
-
-  document.getElementById("info-detalhes").innerHTML = info;
-  document.getElementById("info-popup").style.display = "flex";
+    document.getElementById("info-detalhes").innerHTML = info;
+    document.getElementById("info-popup").style.display = "flex";
 }
 
 function fecharInfo() {
-  document.getElementById("info-popup").style.display = "none";
+    document.getElementById("info-popup").style.display = "none";
 }
 
 

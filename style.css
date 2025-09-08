@@ -1,5 +1,7 @@
-/* Importação da fonte para replicar o design */
+/* Importação da fonte para replicar o design 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
 
 /*
  * Reset Básico
@@ -28,7 +30,36 @@ body {
     background-color: transparent; /* ← ESTA LINHA É A CORREÇÃO */
     padding-right: 20px; /* ou 15px, conforme desejar */
     }
-      
+      h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif; /* fonte sofisticada */
+  color: #fff; /* texto branco sobre fundo escuro */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* sombra suave pra profundidade */
+  backdrop-filter: blur(2px); /* leve desfoque interno */
+  -webkit-backdrop-filter: blur(2px);
+  letter-spacing: 0.5px; /* espaçamento sutil entre letras */
+  transition: all 0.3s ease; /* suavidade em interações */
+}
+.museu-section h1,
+.museu-section h2,
+.museu-section h3,
+.museu-section h4,
+.museu-section h5,
+.museu-section h6,
+.exposicoes-section h1,
+.exposicoes-section h2,
+.exposicoes-section h3,
+.exposicoes-section h4,
+.exposicoes-section h5,
+.exposicoes-section h6 {
+  color: #fff; /* branco puro */
+  font-family: 'Playfair Display', serif;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* profundidade */
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
+}
+
 
 /*
  * Estilos do Header (cabeçalho)
@@ -123,8 +154,10 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     padding-top: 40px;
     font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
     transition: font-size 0.3s ease, padding-top 0.3s ease;
 }
+
 
 /*
  * Estilos das Seções Principais (main)
@@ -138,6 +171,52 @@ body {
     padding: 0;
     
 }
+h5 {
+  background-color: #000; /* fundo preto sólido */
+  backdrop-filter: blur(20px); /* desfoque mais intenso */
+  -webkit-backdrop-filter: blur(20px);
+ 
+ font-size: 1.1em;
+}
+
+.museu-section h5 {
+  background: transparent !important;
+}
+
+
+.museu-section {
+  background-color: #000; /* fundo preto sólido */
+  backdrop-filter: blur(20px); /* desfoque mais intenso */
+  -webkit-backdrop-filter: blur(20px);
+  color: #fff;
+  padding: 60px 20px;
+  border-radius: 12px;
+}
+.historia-bloco.compacto {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+
+.historia-bloco.compacto h6 {
+  font-size: 1em;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #eeb58f;
+}
+
+.historia-bloco.compacto p {
+  margin-bottom: 15px;
+}
+
 
 
 /* Seções */
@@ -208,36 +287,54 @@ body {
     gap: 15px;
 }
 
+/* 🔳 BOTÃO BASE COM EFEITO VIDRO */
 .btn {
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    text-decoration: none;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15); /* vidro translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
 }
 
+/* 🔳 HOVER COM ZOOM E MAIS BRILHO */
+.btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  color: #000;
+}
+
+/* 🔳 VARIAÇÃO PRIMÁRIA */
 .btn-primary {
-    background-color: #eeb58f;
-    color: rgb(255, 255, 255);
-    border: 2px solid #3498db;
+  border: 1px solid #eeb58f;
+  color: #fff;
 }
 
 .btn-primary:hover {
-    background-color: transparent;
-    color: #3498db;
+  background: rgba(238, 181, 143, 0.3);
+  color: #000;
 }
 
+/* 🔳 VARIAÇÃO SECUNDÁRIA */
 .btn-secondary {
-    background-color: #eeb58f;
-    color: rgb(255, 255, 255);
-    border: 2px solid #3498db;
+  border: 1px solid #eeb58f;
+  color: #fff;
 }
 
 .btn-secondary:hover {
-    background-color: transparent;
-    color: #3498db;
+  background: rgba(238, 181, 143, 0.3);
+  color: #000;
 }
+
 
 .hero-image {
     flex: 1;
@@ -355,7 +452,14 @@ body {
     background-size: cover;
     background-position: center;
 }
-
+.exposicoes-section {
+  background-color: #000; /* preto sólido */
+  backdrop-filter: blur(20px); /* desfoque intenso */
+  -webkit-backdrop-filter: blur(20px);
+  color: #fff; /* texto branco para contraste */
+  padding: 40px 20px;
+  border-radius: 12px;
+}
 
 .exposicao-content {
     position: absolute;
