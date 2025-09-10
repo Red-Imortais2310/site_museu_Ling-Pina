@@ -119,8 +119,9 @@ function abrirModal() {
         // Insere o iframe com autoplay ativado
         iframeContainer.innerHTML = `
             <span class="close" onclick="fecharModal()">&times;</span>
-            <iframe width="100%" height="315"
-                src="https://www.youtube.com/embed/rmQRAichVWw?autoplay=1&mute=1"
+            <iframe width="100%" height="400"
+                src="https://www.youtube.com/embed/rmQRAichVWw?autoplay=1&mute=0&playsinline=1"
+
                 frameborder="0"
                 allow="autoplay; encrypted-media"
                 allowfullscreen>
@@ -154,8 +155,9 @@ function abrirModalEscritores() {
         // Insere o iframe com autoplay ativado
         iframeContainer.innerHTML = `
             <span class="close" onclick="fecharModalEscritores()">&times;</span>
-            <iframe width="100%" height="315"
-                src="https://www.youtube.com/embed/C91ud0TuAiU?autoplay=1&mute=1"
+            <iframe width="100%" height="400"
+               src="https://www.youtube.com/embed/C91ud0TuAiU?autoplay=1&mute=0&playsinline=1"
+
                 frameborder="0"
                 allow="autoplay; encrypted-media"
                 allowfullscreen>

@@ -498,7 +498,7 @@ h5 {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -927,7 +927,9 @@ h5 {
     object-fit: cover;
     z-index: 1; /* ← vídeo acima do fundo, abaixo do conteúdo */
     opacity: 1; /* ← totalmente visível */
-  }
+    margin-top: -60px; /* ou ajuste conforme necessário */
+}
+
   
   .pinacoteca {
     position: relative;
@@ -1219,6 +1221,18 @@ h5 {
 
     .exposicao-card {
         height: 250px;
+    }
+
+    /* Ajustes responsivos para o modal */
+    .modal-content {
+        margin: 2% auto;
+        width: 95%;
+        max-width: 95%;
+        padding: 15px;
+    }
+    
+    .modal-content iframe {
+        height: 250px !important;
     }
 }
 

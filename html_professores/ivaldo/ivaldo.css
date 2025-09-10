@@ -1,0 +1,113 @@
+/* Fundo preto com gradiente cintilante */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  position: relative;
+  z-index: 0;
+}
+
+/* Camada de fundo animada */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #000000, #0f0c29, #302b63, #24243e);
+  background-size: 400% 400%;
+  animation: shimmer 20s ease infinite;
+}
+.slideshow img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Animação de brilho pulsante */
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+}
+
+/* Animação cintilante */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Cabeçalho */
+header h3 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.2);
+  animation: pulseGlow 3s ease-in-out infinite;
+  letter-spacing: 1px;
+}
+
+/* Seções */
+.section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* Cards com efeito vidro */
+.gallery-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  color: #ffffff;
+}
+
+/* Imagens */
+.gallery-item img {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Textos */
+.gallery-text {
+  flex: 1;
+}
+
+.gallery-text h2 {
+  margin-top: 0;
+  font-size: 1.8em;
+  color: #ffffff;
+}
+
+.gallery-text p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .gallery-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery-item img {
+    width: 100%;
+  }
+}
+
