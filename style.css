@@ -545,7 +545,7 @@ h5 {
 
 .historia-text p {
     margin-bottom: 15px;
-    color: #555;
+    color: #212020;
 }
 
 .historia-stats {
@@ -562,7 +562,7 @@ h5 {
 
 .stat h3 {
     font-size: 2.5em;
-    color: #efa16d;
+    color: #312f2d;
 }
 
 .stat p {
@@ -631,7 +631,7 @@ h5 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #7f8c8d;
+    color: #3a3f3f;
     font-size: 1.5em;
 }
 
@@ -774,14 +774,23 @@ h5 {
 }
 
 .imagem-contato img {
-  width: 80%;
-  height: auto;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
+  width: 120px;   /* tamanho fixo para todas */
+  height: auto;   /* mantém proporção */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
   margin-bottom: 10px;
-   margin-top: -10px; /* sobe a imagem 10px */
+  margin-top: -10px; /* sobe a imagem 10px */
 }
+
+/* remove os tamanhos diferentes */
+.img-museu,
+.img-pina,
+.img-secult {
+  width: 120px !important;  /* todos iguais */
+  height: auto !important;
+  margin: 0 auto;           /* centraliza */
+}
+
 .img-secult {
   margin-top: -30px; /* sobe a imagem 30px */
 }
