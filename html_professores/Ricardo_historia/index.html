@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>História das Obras Paulistanas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .image-row {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .image-box {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .image-box img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .caption {
+            font-size: 14px;
+            color: #333;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .image-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+            }
+
+            .image-box img {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .caption {
+                padding-top: 20px;
+                font-size: 15px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .header h4 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>História das Obras Paulistanas</h1>
+        <h4>Por Agenor</h4>
+    </div>
+
+    <div class="main-content">
+        <div class="image-row">
+            <div class="image-box">
+                <img src="lingua_solta.jpg" alt="Língua Solta">
+                <div class="caption">
+                  <h2><strong>Língua Solta</strong> foi a primeira exposição temporária após a reabertura do Museu da Língua Portuguesa em 2021. Curada por Fabiana Moraes e Moacir dos Anjos, ela celebra a língua como expressão cultural, política e social. A mostra reúne obras que revelam como o idioma é usado para resistir, comunicar e transformar, com destaque para objetos do cotidiano, arte popular e contemporânea.</h2>
+                </div>
+            </div>
+
+            <div class="image-box">
+                <img src="prestes_maia.jpg" alt="Prestes Maia">
+                <div class="caption">
+                  <h2><strong>Janelas do Edifício Prestes Maia</strong>, de Julio Bittencourt, retrata a vida em ocupações urbanas no centro de São Paulo. A série fotográfica revela a dignidade e diversidade dos moradores através das janelas, transformando o edifício em símbolo de resistência social. Bittencourt é conhecido por seu olhar humanista e crítico sobre a cidade.</h2>
+                </div>
+            </div>
+
+            <div class="image-box">
+                <img src="saudade_almeida_junior.webp" alt="Saudade - Almeida Júnior">
+                <div class="caption">
+                    <h2><strong>Saudade</strong>, pintada por Almeida Júnior em 1899, é uma das obras mais icônicas da Pinacoteca. O artista paulista foi um dos pioneiros do realismo no Brasil. Nesta pintura, ele retrata com sensibilidade o sentimento nostálgico do povo brasileiro, capturando a melancolia e a introspecção com maestria técnica e emocional.</h2>
+                </div>
+            </div>
+
+            <div class="image-box">
+                <img src="mestico_portinari.webp" alt="Mestiço - Cândido Portinari">
+                <div class="caption">
+                   <h2><strong>Mestiço</strong>, de Cândido Portinari (1934), representa a miscigenação brasileira com força e dignidade. Portinari, um dos maiores nomes da arte modernista, usou sua obra para denunciar desigualdades sociais e valorizar o povo comum. Esta pintura é um símbolo da identidade nacional e da luta por reconhecimento.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
